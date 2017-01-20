@@ -1,10 +1,10 @@
 FROM ubuntu:trusty
-MAINTAINER Fernando Mayo <fernando@tutum.co>, Feng Honglin <hfeng@tutum.co>
+MAINTAINER Rodrigo de Melo <rodrigoeddie@gmail.com>
 
 # Install packages
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
-  apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server php5-mysql pwgen php-apc php5-mcrypt && \
+  apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server -y --fix-missing --fix-broken php5 php5-mysql php5-pgsql php5-sqlite php5-curl php5-mcrypt php5-gd php5-imagick php-pear openssl-blacklist pwgen php-apc && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Add image configuration and scripts
